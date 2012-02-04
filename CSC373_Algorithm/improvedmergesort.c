@@ -29,9 +29,9 @@ int main(int argc , char * argv[])
 		//arr[i] = (float)(number/2) - i;
 	}
 	for(int i = 0 ; i< number; i++)
-  {
-    temp[i] =0;
-  }
+  	{
+    	temp[i] =0;
+  	}
 /*
 	printf("Before Sorting...\n");
 
@@ -46,18 +46,18 @@ int main(int argc , char * argv[])
 /*
 	printf("After Sorting...\n");
 
-  for(int i = 0 ; i< number; i++)
-  {
-    printf("%d\t",arr[i]);
+  	for(int i = 0 ; i< number; i++)
+  	{
+    		printf("%d\t",arr[i]);
 
-  }*/
+  	}*/
 	printf("\n");
 	/*
 	for(int i = 0 ; i< number; i++)
-  {
-    printf("%d\t",arr[i]);
+ 	 {
+    		printf("%d\t",arr[i]);
 
-  }
+  	}
 	*/
 	
 
