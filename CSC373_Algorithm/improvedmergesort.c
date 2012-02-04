@@ -18,7 +18,7 @@ int main(int argc , char * argv[])
 
   //printf("The number is %d",number);
 	*/
-  int *arr = (int*)malloc((int)number* sizeof(int));
+  	int *arr = (int*)malloc((int)number* sizeof(int));
 
 	int *temp = (int*)malloc((int)number*sizeof(int));
 
