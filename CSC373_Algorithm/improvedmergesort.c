@@ -12,11 +12,11 @@ int main(int argc , char * argv[])
 	int number = 9000000;//9 million numbers
 
 	/*
-  printf("Enter a number: \n");
+ 	 printf("Enter a number: \n");
 
-  scanf("%d",&number);
+  	scanf("%d",&number);
 
-  //printf("The number is %d",number);
+  	//printf("The number is %d",number);
 	*/
   	int *arr = (int*)malloc((int)number* sizeof(int));
 
@@ -32,18 +32,18 @@ int main(int argc , char * argv[])
   	{
     	temp[i] =0;
   	}
-/*
+	/*
 	printf("Before Sorting...\n");
 
 	for(int i = 0 ; i< number; i++)
 	{
 		printf("%d\t",arr[i]);
 	}
-*/
+	*/
 	mergesort(arr,temp,0, number-1);
 
 	printf("\n");
-/*
+	/*
 	printf("After Sorting...\n");
 
   	for(int i = 0 ; i< number; i++)
@@ -72,6 +72,17 @@ int main(int argc , char * argv[])
 
 void mergesort( int *array,int *temporary ,int low,  int high)
 {
+
+	/*
+	
+	int n = 2;
+	44 is not a magic number , came from 
+	
+	while(8*n*n < 64 * n *log2(n)){n++;}
+		
+	
+	*/
+
 
 	if (high -low <= 44)
 	{
