@@ -13,28 +13,28 @@ inc di
 inc di
 inc di
 
-mov a1,[si]
-mov [di],a1
+mov al,[si]
+mov [di],al
 inc si
 dec di
 
-mov a1,[si]
-mov [di],a1
+mov al,[si]
+mov [di],al
 inc si
 dec di
 
-mov a1,[si]
-mov [di],a1
+mov al,[si]
+mov [di],al
 inc si
 dec di
 
-mov a1,[si]
-mov [di],a1
+mov al,[si]
+mov [di],al
 inc si
 dec di
 
-mov a1,[si]
-mov [di],a1
+mov al,[si]
+mov [di],al
 inc si
 dec di
 
