@@ -8,7 +8,6 @@
 using namespace std;
 
 void bfs(graph *gr , vertex *v);
-void print_path2(graph *gr , string s , string g);
 
 void print_path(graph *gr , vertex *s , vertex *v);
 
@@ -57,18 +56,14 @@ int main(int argc , char * argv[])
 	gr->addEdge(v6,v5,1);
 	gr->addEdge(v4,v5,1);
 	
-	
-
-	
-	for(int i = 0 ; i < gr->numVerticies ; i++)
-	{
-		//cout<<gr->verticies[i]->element<<endl;
-	
-	}
-
+	//bfs(graph *gr, startingvertex *v)
 
 	bfs(gr,v2);
-	cout<<"hhhhhhhhhhhhhhhhhhhh"<<endl;
+
+	cout<<"Printing the path : "<<endl;
+
+	//print_path(graph *gr , startingvertex *s , endingvertex *v)
+
 	print_path(gr, v2 ,v4);
 
 	return 0;
@@ -100,56 +95,31 @@ void bfs(graph *gr , vertex *s)
 		
 		else
 		
+		
 		{
 			//u.color = white
 			
+	
 			gr->verticies[i]->color = 1;
 			
 			//u.color = 10,000
+	
 			gr->verticies[i]->distance = 1000000;
 			
 			//u.parent = NIL
+	
 			gr->verticies[i]->parent = NULL;
 			
-		
 		}
 	
 	
 	}//end of initialization
 
 
-	//not needed for checking only
-	
-	for(int i = 0 ; i < gr->numVerticies ; i++)
-	{
-		//cout << gr->verticies[i]->color<<endl;
-	
-	}
-	
-	
-
 	
 	//Getting the size of adjacent verticies
 	
 	int size = gr->getsizeofadjVerticies(s);
-	
-	//cout <<"size is :"<<size<<endl;//not needed
-	
-	
-	//Initializing the array of vertex
-	
-	//vertex ** arrofadjvert = (vertex**)malloc(sizeof(vertex)*size);
-	
-	//arrofadjvert = gr->arrayofadjacentVertex(s);
-	
-	
-	//Seeing whats inside the array of verticies
-	
-	for(int i = 0 ; i< size ; i++)
-	{
-		//cout<<(arrofadjvert[i])->element<<endl;
-		
-	}
 	
 	
 	//Now back to the algorithm 
@@ -159,20 +129,24 @@ void bfs(graph *gr , vertex *s)
 	gr->verticies[gr->indexOf(s)]->color = 2;
 
 	//s.d = 0 
+	
 	gr->verticies[gr->indexOf(s)]->distance = 0;
 
 	//s.π = 0 
+	
 	gr->verticies[gr->indexOf(s)]->parent = NULL;
 
-	
-	
+		
 	//Enqueue(Q,s)
 	
 	newqueue.push(s->element);
 	
 	//cout<<"s->element : "<<s->element<<endl;
+	
 	//while Q=! 0
+	
 	while (!newqueue.empty())
+	
 	{
 		
 		//u = Dequeue(Q)
@@ -185,20 +159,22 @@ void bfs(graph *gr , vertex *s)
 	
 		newqueue.pop();
 		
-		//cout<<"ggggggggggg"<<newqueue.front()<<endl;
 		//Finishing u = Dequeue(Q)
 		
 		//foreach v E G.Adj[u]
 		
+		//creating an array of vertex dynamically using the size of the adjacent vertex
+		
 		vertex ** arrofadjvert = (vertex**)malloc(sizeof(vertex)*gr->getsizeofadjVerticies(u));
 	
-	  arrofadjvert = gr->arrayofadjacentVertex(u);
-	
+		//assigning the array of adjacent vertex to the variable
 		
-		
+		arrofadjvert = gr->arrayofadjacentVertex(u);
+			
 		
 		for(int i = 0 ; i< gr->getsizeofadjVerticies(u) ; i++)
 	
+		
 		{
 		
 			//cout<<(arrofadjvert[i])->element<<endl;
@@ -208,80 +184,61 @@ void bfs(graph *gr , vertex *s)
 		
 		
 			v = arrofadjvert[i];
-			//cout<<"v->color"<<v->color<<endl;
-			
-			//cout<<"v->element: "<<v->element<<endl;
+
 			
 			//if v.color == white
 			
 			if(v->color == 1)
 			
+		
 			{
 			
-				//cout<<"v->color : "<<v->color<<endl;
-				//cout<<"v->element"<<v->element<<endl;
 			
 				//v.color = GRAY
+
 				gr->verticies[gr->indexOf(v)]->color = 2;
 
-				
 				
 				//v.d = v.d + 1
 				
 				gr->verticies[gr->indexOf(v)]->distance = gr->verticies[gr->indexOf(u)]->distance + 1;
 
-  
 			
 				//v.parent = u 
+
 				gr->verticies[gr->indexOf(v)]->parent = gr->verticies[gr->indexOf(u)];
-
-
 
 				
 				//Enqueue(Q,v)
-				//cout<<"Now element is : "<<v->element<<endl;
+
+
 				newqueue.push(v->element);
 				
+			
 			}
 			
-	}
+	
+		}
+	
 	
 	arrofadjvert = NULL;
+
 	gr->verticies[gr->indexOf(u)]->color = 3;
 
-	if(gr->verticies[gr->indexOf(u)]->color == 3)
-	{
-
-	cout<<gr->verticies[gr->indexOf(u)]->element<<endl;
-	cout<<gr->verticies[gr->indexOf(u)]->distance<<endl;
-	
-	}
-	cout<<"-->>"<<endl;
-		
-		
-	}
-	
-	
-	cout<<"............."<<endl;
-	for(int i = 0 ; i < gr->numVerticies ; i++)
-	{
-		cout<<gr->verticies[i]->distance<<endl;
 	
 	}
 	
 	
 	
 }
-
-
-
+	
+	
 
 void print_path(graph *gr , vertex *s , vertex *v)
 {
 
-	
+
 	if (v->element.compare(s->element) == 0)
-		
 		
 		cout<<s->element<<endl;
 	

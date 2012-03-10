@@ -15,8 +15,6 @@ class vertex
 
 	int distance ; //distance of the vertex from the adjacent node
 
-	//int numberofadjacentVertex;//number of the adjacent verticies
-
 	int color ;//1 for not visited
 							//2 for still processing
 							//3 for has visted
@@ -30,41 +28,23 @@ class graph
 
 	graph();
 
-	~graph();
-
-	void makeEmpty();
-
-	void isEmpty();
-
-	bool isFull();
-
 	void addVertex(vertex *v);
 
 	void addEdge(vertex *v , vertex *w , int d);
 
-	int weightIs(vertex *v , vertex *w);
-
-	void adjacentVertex(vertex *v);
-
-	void clearMarks();
-
-	void markVertex(vertex *v);
-
-	bool isMarked(vertex * v);
-
 	int indexOf(vertex *v);
-
+	
+	//returns array of adjacent vertex of a certain vertex
 	
 	vertex ** arrayofadjacentVertex(vertex *v);
 
+	//array of vertex
+	
 	vertex *verticies[50];
 
 	vertex *getVertex(string g);
 
 	int getsizeofadjVerticies(vertex *v);
-
-
-	void adjacentVertex(int arr[], int size , vertex *w);
 
 	int numVerticies;
 

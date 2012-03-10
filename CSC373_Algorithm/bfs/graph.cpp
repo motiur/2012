@@ -11,8 +11,7 @@ vertex::vertex()
 
 	distance = 10000;
 
-	//numberofadjacentVertex= -1;
-
+	//color is NILL
 	color = 0;
 
 	vertex * parent = NULL;
@@ -49,12 +48,16 @@ graph::graph()
 
 }
 
+//adding a vertex by increasing the number of vertex
+
 void graph::addVertex(vertex *v)
 {
 	
 	verticies[numVerticies++]= v;
 
 }
+
+//adding an edge 
 
 void graph::addEdge(vertex *v , vertex *w , int d)
 {
@@ -64,10 +67,9 @@ void graph::addEdge(vertex *v , vertex *w , int d)
 	
 	edges[index_vertical][index_horizontal] = d;
 
-	
-
-
 }
+
+//finding the index of a certain vertex
 
 int graph::indexOf(vertex *v)
 {
@@ -82,15 +84,7 @@ int graph::indexOf(vertex *v)
 
 }
 
-int graph::weightIs(vertex *v , vertex *w)
-{
-	int index_vertical = indexOf(v);
-
-	int index_horizontal = indexOf(w);
-
-	return edges[index_vertical][index_horizontal];
-
-}
+//finding the array of adjacent vertex
 
 vertex **graph::arrayofadjacentVertex(vertex *v)
 {
@@ -162,18 +156,23 @@ vertex **graph::arrayofadjacentVertex(vertex *v)
 
 }
 
+//finding the size of adjacent vertex
+
 int graph::getsizeofadjVerticies(vertex *v)
+
 {
 
 	int size = 0 ;
 	
 	int ind = indexOf(v);
 
+	//this expression below is true for only undirected graphs
+	
 	for(int i = 0 ; i<numVerticies ; i++)
 	{
 		if ((edges[ind][i]!= 10000)||(edges[i][ind]!= 10000))
 		{
-			//cout<<"egde["<<ind<<"]i["<<i<<"]"<<edges[ind][i]<<endl;
+	
 			size++;
 
 		}
@@ -184,33 +183,9 @@ int graph::getsizeofadjVerticies(vertex *v)
 
 
 }
-void graph::markVertex(vertex *v)
-{
 
-	int index = indexOf(v);
 
-	marks[index] = true;
-
-}
-
-bool graph::isMarked(vertex *v)
-{
-	int index = indexOf(v);
-
-	return marks[index];
-
-}
-
-void graph::clearMarks()
-{
-	for(int i = 0;i <maxVerticies ; i++)
-	{
-
-		marks[i] = false;
-
-	}
-
-}
+//returning a vertex using a string
 
 vertex * graph::getVertex(string g)
 {
@@ -229,15 +204,25 @@ vertex * graph::getVertex(string g)
 	}
 
 }
+
+//string to integer conversion
+
 int getInteger(string g)
 {
 	int siz=g.length();
+
 	int x =0;
+	
 	for(int i=0; i<siz; i++)
 	{
 		int val=g[i]-'0';
+	
 		x*=10;
+		
 		x+=val;
+	
 	}
+	
 	return x;
+
 }
