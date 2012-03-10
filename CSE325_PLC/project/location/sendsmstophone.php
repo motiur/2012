@@ -3,14 +3,14 @@
 ?>
 <?php
  
-$a['registrationID'] = "motiur_rahman";  /*Your AloAshbei Username*/
-$a['password'] = "hello012";  /*Your Aloashbei Password*/
-$a['sourceMsisdn'] = '8801738023926'; /*Your registered number.*/
-$a['destinationMsisdn'] = '8801738023926'; /*Number you are sending to.*/
+$a['registrationID'] = "***";  /*Your AloAshbei Username*/
+$a['password'] = "***";  /*Your Aloashbei Password*/
+$a['sourceMsisdn'] = '***'; /*Your registered number.*/
+$a['destinationMsisdn'] = '***'; /*Number you are sending to.*/
 $a['smsPort'] = 7424;
 $a['msgType'] = 4;
 $a['charge'] = 0.00 ;
-$a['chargedParty'] = '8801738023926'; /*Same as sourceMSISDN.*/
+$a['chargedParty'] = '***'; /*Same as sourceMSISDN.*/
 $a['contentArea'] = 'gpgp_psms';
 $a['msgContent'] = 'Hello World'; /*The message being sent.*/
  
