@@ -1,0 +1,3 @@
+To compile:
+
+g++ topologicalsort.cpp graph.cpp graph.h

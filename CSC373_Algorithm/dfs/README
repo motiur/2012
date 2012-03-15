@@ -1,0 +1,3 @@
+To compile:
+
+g++ dfs.cpp graph.cpp graph.h
